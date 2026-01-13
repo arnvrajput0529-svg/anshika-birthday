@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday Anshika 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(#ff9a9e, #fad0c4);
+      overflow: hidden;
+    }
+    h2 { margin-top: 30px; }
+    #bat {
+      font-size: 90px;
+      margin: 20px;
+      cursor: pointer;
+    }
+    #count { font-size: 18px; }
+    #gift { display: none; padding: 20px; }
+    img {
+      width: 80%;
+      max-width: 250px;
+      border-radius: 15px;
+      margin: 10px;
+    }
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 40px;
+      height: 60px;
+      border-radius: 50%;
+      animation: float 6s linear infinite;
+    }
+    @keyframes float {
+      to { transform: translateY(-120vh); }
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Hit Me 5 Times 😝</h2>
+  <div id="bat">🏏</div>
+  <div id="count">0 / 5</div>
+
+  <div id="gift">
+    <h1>Happy 16th Birthday Anshika 🎂💖</h1>
+    <p>
+      Even miles apart, you mean everything to me.<br>
+      Every hit was worth it just to see you smile.<br>
+      I’m always with you ❤️
+    </p>
+
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+  </div>
+
+<script>
+let hits = 0;
+document.getElementById("bat").onclick = () => {
+  hits++;
+  document.getElementById("count").innerText = hits + " / 5";
+  if (hits === 5) {
+    document.getElementById("gift").style.display = "block";
+    for (let i = 0; i < 25; i++) {
+      const b = document.createElement("div");
+      b.className = "balloon";
+      b.style.left = Math.random() * 100 + "vw";
+      b.style.background = `hsl(${Math.random()*360},70%,70%)`;
+      document.body.appendChild(b);
+    }
+  }
+};
+</script>
+</body>
+</html>
