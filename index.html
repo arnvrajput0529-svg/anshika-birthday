@@ -1,78 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Happy Birthday Anshika 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(#ff9a9e, #fad0c4);
-      overflow: hidden;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Anshika 💖</title>
+
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #f8cdda, #fbd3e9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px 25px;
+    width: 90%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 600;
+    color: #2b2b2b;
+  }
+
+  .tap {
+    margin: 25px 0;
+    font-size: 18px;
+    color: #444;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .counter {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .message {
+    display: none;
+    margin-top: 20px;
+    animation: fadeIn 1.2s ease forwards;
+  }
+
+  .message p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #222;
+  }
+
+  .photos {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .photos img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 18px;
+    animation: floatUp 6s linear forwards;
+    opacity: 0.8;
+  }
+
+  @keyframes floatUp {
+    to {
+      transform: translateY(-110vh);
+      opacity: 0;
     }
-    h2 { margin-top: 30px; }
-    #bat {
-      font-size: 90px;
-      margin: 20px;
-      cursor: pointer;
-    }
-    #count { font-size: 18px; }
-    #gift { display: none; padding: 20px; }
-    img {
-      width: 80%;
-      max-width: 250px;
-      border-radius: 15px;
-      margin: 10px;
-    }
-    .balloon {
-      position: absolute;
-      bottom: -100px;
-      width: 40px;
-      height: 60px;
-      border-radius: 50%;
-      animation: float 6s linear infinite;
-    }
-    @keyframes float {
-      to { transform: translateY(-120vh); }
-    }
-  </style>
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
 </head>
 
 <body>
-  <h2>Hit Me 5 Times 😝</h2>
-  <div id="bat">🏏</div>
-  <div id="count">0 / 5</div>
 
-  <div id="gift">
-    <h1>Happy 16th Birthday Anshika 🎂💖</h1>
-    <p>
-      Even miles apart, you mean everything to me.<br>
-      Every hit was worth it just to see you smile.<br>
-      I’m always with you ❤️
-    </p>
+<div class="card">
+  <h1>Hey Anshika 💖</h1>
 
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
+  <div class="tap" id="tap">
+    Tap here gently ✨
   </div>
 
+  <div class="counter" id="counter">
+    0 / 5
+  </div>
+
+  <div class="message" id="message">
+    <h2>Happy 16th Birthday 🎂</h2>
+    <p>
+      Even from miles away,<br>
+      you make my world softer and brighter.<br><br>
+      This is just a small reminder<br>
+      that you’re deeply loved — always 💗
+    </p>
+
+    <div class="photos">
+      <img src="photo1.jpg">
+      <img src="photo2.jpg">
+      <img src="photo3.jpg">
+    </div>
+  </div>
+</div>
+
 <script>
-let hits = 0;
-document.getElementById("bat").onclick = () => {
-  hits++;
-  document.getElementById("count").innerText = hits + " / 5";
-  if (hits === 5) {
-    document.getElementById("gift").style.display = "block";
-    for (let i = 0; i < 25; i++) {
-      const b = document.createElement("div");
-      b.className = "balloon";
-      b.style.left = Math.random() * 100 + "vw";
-      b.style.background = `hsl(${Math.random()*360},70%,70%)`;
-      document.body.appendChild(b);
+  let count = 0;
+  const tap = document.getElementById("tap");
+  const counter = document.getElementById("counter");
+  const message = document.getElementById("message");
+
+  tap.onclick = () => {
+    if (count >= 5) return;
+
+    count++;
+    counter.innerText = count + " / 5";
+
+    for (let i = 0; i < 2; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (14 + Math.random() * 16) + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 6000);
     }
-  }
-};
+
+    if (count === 5) {
+      message.style.display = "block";
+      tap.innerText = "💖";
+    }
+  };
 </script>
+
 </body>
 </html>
