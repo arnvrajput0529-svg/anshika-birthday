@@ -3,157 +3,230 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Anshika 💖</title>
+<title>For Anshika 🤍</title>
+
+<!-- Premium Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-  * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-  body {
-    margin: 0;
-    height: 100vh;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: linear-gradient(135deg, #f8cdda, #fbd3e9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #1c1c28, #09090f);
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: pageFade 1.5s ease;
+}
 
-  .card {
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 30px 25px;
-    width: 90%;
-    max-width: 380px;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  }
+@keyframes pageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-  h1 {
-    margin: 0;
-    font-weight: 600;
-    color: #2b2b2b;
-  }
+.card {
+  width: 92%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(22px);
+  border-radius: 26px;
+  padding: 34px 28px;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+  text-align: center;
+  position: relative;
+}
 
-  .tap {
-    margin: 25px 0;
-    font-size: 18px;
-    color: #444;
-    cursor: pointer;
-    user-select: none;
-  }
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: #f5f5f7;
+  margin: 0;
+  letter-spacing: 0.4px;
+}
 
-  .counter {
-    font-size: 14px;
-    color: #555;
-  }
+.subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #b8b8c2;
+  letter-spacing: 0.6px;
+}
 
-  .message {
-    display: none;
-    margin-top: 20px;
-    animation: fadeIn 1.2s ease forwards;
-  }
+.holdText {
+  margin: 34px 0 12px;
+  font-size: 15px;
+  color: #d6d6de;
+  user-select: none;
+}
 
-  .message p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #222;
-  }
+.progress {
+  width: 100%;
+  height: 7px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-  .photos {
-    margin-top: 15px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
+.bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffb6c1, #ffc3a0);
+}
 
-  .photos img {
-    width: 100%;
-    border-radius: 12px;
-    object-fit: cover;
-  }
+.content {
+  display: none;
+  margin-top: 26px;
+  animation: rise 1.6s ease forwards;
+}
 
-  .heart {
-    position: absolute;
-    bottom: -20px;
-    font-size: 18px;
-    animation: floatUp 6s linear forwards;
-    opacity: 0.8;
-  }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  @keyframes floatUp {
-    to {
-      transform: translateY(-110vh);
-      opacity: 0;
-    }
-  }
+.message {
+  font-family: 'Playfair Display', serif;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: #f1f1f3;
+  margin-bottom: 22px;
+}
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.photos img {
+  width: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+}
+
+.particle {
+  position: absolute;
+  bottom: -20px;
+  color: rgba(255,255,255,0.7);
+  animation: floatUp 9s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
   }
+}
 </style>
 </head>
 
 <body>
 
+<!-- Ambient music (unlocks on interaction) -->
+<audio id="bgm" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1b5a6a7f6a.mp3?filename=soft-piano-ambient-110624.mp3" type="audio/mpeg">
+</audio>
+
 <div class="card">
-  <h1>Hey Anshika 💖</h1>
+  <h1>Anshika 🤍</h1>
+  <div class="subtitle">something made with intention</div>
 
-  <div class="tap" id="tap">
-    Tap here gently ✨
+  <div class="holdText" id="holdText">Hold gently for 3 seconds</div>
+  <div class="progress">
+    <div class="bar" id="bar"></div>
   </div>
 
-  <div class="counter" id="counter">
-    0 / 5
-  </div>
+  <div class="content" id="content">
+    <div class="message">
+      Happy 16th Birthday.<br><br>
 
-  <div class="message" id="message">
-    <h2>Happy 16th Birthday 🎂</h2>
-    <p>
-      Even from miles away,<br>
-      you make my world softer and brighter.<br><br>
-      This is just a small reminder<br>
-      that you’re deeply loved — always 💗
-    </p>
+      I know distance can make moments feel quiet,  
+      and sometimes words don’t reach the way we want them to —  
+      but even across miles, you are never distant to me.<br><br>
+
+      You have a way of existing that feels calm and rare.  
+      A softness that doesn’t try to be loud,  
+      a presence that feels steady, warm, and real.<br><br>
+
+      This isn’t just a birthday wish.  
+      It’s a reminder that you are valued more than you know,  
+      that you are growing into someone beautiful inside and out,  
+      and that you matter — deeply.<br><br>
+
+      I hope this year is kind to you.  
+      And on the days it isn’t,  
+      I hope you remember there’s someone always rooting for you. 🤍
+    </div>
 
     <div class="photos">
       <img src="photo1.jpg">
       <img src="photo2.jpg">
       <img src="photo3.jpg">
+      <img src="photo4.jpg">
     </div>
   </div>
 </div>
 
 <script>
-  let count = 0;
-  const tap = document.getElementById("tap");
-  const counter = document.getElementById("counter");
-  const message = document.getElementById("message");
+let holdTime = 0;
+let holding = false;
+const bar = document.getElementById("bar");
+const content = document.getElementById("content");
+const holdText = document.getElementById("holdText");
+const bgm = document.getElementById("bgm");
+let musicStarted = false;
 
-  tap.onclick = () => {
-    if (count >= 5) return;
+function startHold() {
+  if (content.style.display === "block") return;
+  holding = true;
+  holdText.innerText = "Keep holding…";
+  if (!musicStarted) {
+    bgm.volume = 0.25;
+    bgm.play().catch(()=>{});
+    musicStarted = true;
+  }
+}
 
-    count++;
-    counter.innerText = count + " / 5";
+function endHold() {
+  holding = false;
+  if (holdTime < 3000) holdText.innerText = "Hold gently for 3 seconds";
+}
 
-    for (let i = 0; i < 2; i++) {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerText = "💗";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (14 + Math.random() * 16) + "px";
-      document.body.appendChild(heart);
+document.body.addEventListener("mousedown", startHold);
+document.body.addEventListener("touchstart", startHold);
+document.body.addEventListener("mouseup", endHold);
+document.body.addEventListener("touchend", endHold);
 
-      setTimeout(() => heart.remove(), 6000);
+setInterval(() => {
+  if (holding && holdTime < 3000) {
+    holdTime += 50;
+    bar.style.width = (holdTime / 3000) * 100 + "%";
+    spawnParticle();
+    if (holdTime >= 3000) {
+      content.style.display = "block";
+      holdText.innerText = "🤍";
     }
+  }
+  if (!holding && holdTime > 0) {
+    holdTime -= 80;
+    bar.style.width = (holdTime / 3000) * 100 + "%";
+  }
+}, 50);
 
-    if (count === 5) {
-      message.style.display = "block";
-      tap.innerText = "💖";
-    }
-  };
+function spawnParticle() {
+  const p = document.createElement("div");
+  p.className = "particle";
+  p.innerText = "✦";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.fontSize = (10 + Math.random() * 14) + "px";
+  document.body.appendChild(p);
+  setTimeout(() => p.remove(), 9000);
+}
 </script>
 
 </body>
