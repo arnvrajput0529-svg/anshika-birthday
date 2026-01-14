@@ -1,71 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Anshika 🤍</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday Anshika 💖</title>
 
-<!-- Premium Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@400&display=swap" rel="stylesheet">
 
 <style>
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  height: 100vh;
-  background: radial-gradient(circle at top, #1c1c28, #09090f);
-  font-family: 'Inter', system-ui, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  animation: pageFade 1.5s ease;
-}
-
-@keyframes pageFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  min-height: 100vh;
+  background: linear-gradient(180deg, #2b2b3c, #12121a);
+  font-family: 'Inter', sans-serif;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 .card {
-  width: 92%;
-  max-width: 420px;
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(22px);
-  border-radius: 26px;
-  padding: 34px 28px;
-  box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+  max-width: 380px;
+  margin: auto;
+  background: rgba(255,255,255,0.08);
+  border-radius: 22px;
+  padding: 24px 20px 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
   text-align: center;
-  position: relative;
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-weight: 600;
-  color: #f5f5f7;
+  color: #fff;
+  font-size: 26px;
   margin: 0;
-  letter-spacing: 0.4px;
 }
 
 .subtitle {
+  color: #cfcfe6;
+  font-size: 14px;
   margin-top: 6px;
-  font-size: 13px;
-  color: #b8b8c2;
-  letter-spacing: 0.6px;
 }
 
-.holdText {
-  margin: 34px 0 12px;
-  font-size: 15px;
-  color: #d6d6de;
-  user-select: none;
+.tapText {
+  margin: 26px 0 12px;
+  font-size: 16px;
+  color: #e6e6f0;
 }
 
 .progress {
   width: 100%;
-  height: 7px;
-  background: rgba(255,255,255,0.15);
+  height: 8px;
+  background: rgba(255,255,255,0.2);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -73,26 +59,27 @@ h1 {
 .bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #ffb6c1, #ffc3a0);
+  background: linear-gradient(90deg, #ffb6c1, #ffd1a8);
 }
 
 .content {
   display: none;
-  margin-top: 26px;
-  animation: rise 1.6s ease forwards;
+  margin-top: 24px;
+  animation: fadeIn 1.2s ease forwards;
 }
 
-@keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .message {
   font-family: 'Playfair Display', serif;
-  font-size: 15.5px;
-  line-height: 1.75;
-  color: #f1f1f3;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #f4f4f8;
   margin-bottom: 22px;
+  text-align: left;
 }
 
 .photos {
@@ -105,62 +92,42 @@ h1 {
   width: 100%;
   border-radius: 14px;
   object-fit: cover;
-  box-shadow: 0 14px 36px rgba(0,0,0,0.45);
-}
-
-.particle {
-  position: absolute;
-  bottom: -20px;
-  color: rgba(255,255,255,0.7);
-  animation: floatUp 9s linear forwards;
-  pointer-events: none;
-}
-
-@keyframes floatUp {
-  to {
-    transform: translateY(-120vh);
-    opacity: 0;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Ambient music (unlocks on interaction) -->
-<audio id="bgm" loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1b5a6a7f6a.mp3?filename=soft-piano-ambient-110624.mp3" type="audio/mpeg">
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/26/audio_0c4d4f52c1.mp3?filename=romantic-piano-ambient-124008.mp3" type="audio/mpeg">
 </audio>
 
 <div class="card">
-  <h1>Anshika 🤍</h1>
-  <div class="subtitle">something made with intention</div>
+  <h1>Anshika 💖</h1>
+  <div class="subtitle">happy 16th birthday</div>
 
-  <div class="holdText" id="holdText">Hold gently for 3 seconds</div>
-  <div class="progress">
-    <div class="bar" id="bar"></div>
-  </div>
+  <div class="tapText" id="tapText">Tap slowly 5 times 💗</div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
 
   <div class="content" id="content">
     <div class="message">
-      Happy 16th Birthday.<br><br>
+      Happy Birthday, Anshika.<br><br>
 
-      I know distance can make moments feel quiet,  
-      and sometimes words don’t reach the way we want them to —  
-      but even across miles, you are never distant to me.<br><br>
+      I wish I could be there today, but since I can’t, I made this just for you.
+      I hope it makes you smile even a little.<br><br>
 
-      You have a way of existing that feels calm and rare.  
-      A softness that doesn’t try to be loud,  
-      a presence that feels steady, warm, and real.<br><br>
+      You honestly don’t realise how special you are. The way you talk, the way
+      you care, the way you exist — it all means a lot to me.<br><br>
 
-      This isn’t just a birthday wish.  
-      It’s a reminder that you are valued more than you know,  
-      that you are growing into someone beautiful inside and out,  
-      and that you matter — deeply.<br><br>
+      Even when we’re far apart, you’re always close in my thoughts.
+      You’re someone I feel safe with, calm with, happy with.<br><br>
 
-      I hope this year is kind to you.  
-      And on the days it isn’t,  
-      I hope you remember there’s someone always rooting for you. 🤍
+      Cheeku is always proud of you.
+      Always rooting for you.
+      Always here — no matter what.<br><br>
+
+      I hope this year gives you reasons to laugh more, dream bigger,
+      and feel loved every single day. You deserve that and more. 🤍
     </div>
 
     <div class="photos">
@@ -173,60 +140,29 @@ h1 {
 </div>
 
 <script>
-let holdTime = 0;
-let holding = false;
+let taps = 0;
 const bar = document.getElementById("bar");
 const content = document.getElementById("content");
-const holdText = document.getElementById("holdText");
-const bgm = document.getElementById("bgm");
+const music = document.getElementById("music");
 let musicStarted = false;
 
-function startHold() {
-  if (content.style.display === "block") return;
-  holding = true;
-  holdText.innerText = "Keep holding…";
+document.body.addEventListener("click", () => {
+  if (taps >= 5) return;
+
+  taps++;
+  bar.style.width = (taps / 5) * 100 + "%";
+
   if (!musicStarted) {
-    bgm.volume = 0.25;
-    bgm.play().catch(()=>{});
+    music.volume = 0.3;
+    music.play().catch(()=>{});
     musicStarted = true;
   }
-}
 
-function endHold() {
-  holding = false;
-  if (holdTime < 3000) holdText.innerText = "Hold gently for 3 seconds";
-}
-
-document.body.addEventListener("mousedown", startHold);
-document.body.addEventListener("touchstart", startHold);
-document.body.addEventListener("mouseup", endHold);
-document.body.addEventListener("touchend", endHold);
-
-setInterval(() => {
-  if (holding && holdTime < 3000) {
-    holdTime += 50;
-    bar.style.width = (holdTime / 3000) * 100 + "%";
-    spawnParticle();
-    if (holdTime >= 3000) {
-      content.style.display = "block";
-      holdText.innerText = "🤍";
-    }
+  if (taps === 5) {
+    content.style.display = "block";
+    document.getElementById("tapText").innerText = "💖";
   }
-  if (!holding && holdTime > 0) {
-    holdTime -= 80;
-    bar.style.width = (holdTime / 3000) * 100 + "%";
-  }
-}, 50);
-
-function spawnParticle() {
-  const p = document.createElement("div");
-  p.className = "particle";
-  p.innerText = "✦";
-  p.style.left = Math.random() * 100 + "vw";
-  p.style.fontSize = (10 + Math.random() * 14) + "px";
-  document.body.appendChild(p);
-  setTimeout(() => p.remove(), 9000);
-}
+});
 </script>
 
 </body>
